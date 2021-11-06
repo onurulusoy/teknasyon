@@ -20,19 +20,21 @@ public class ApplicationFormPage {
     private By iconSuccess = By.className("icon-success");
     private By textSuccess = By.xpath("//h2[text()='Başvurunuz alınmıştır.']");
 
-    public boolean isThereAnyWarning() {
-        if((driver.findElements(nameSurnameError).size() &
-                driver.findElements(emailError).size() &
-                driver.findElements(fileError).size() &
-                driver.findElements(letError).size() &
-                driver.findElements(reCaptchaError).size()) != 0) {
-
-            System.out.println("Warning(s) on the form");
-            return false;
-        } else {
-            System.out.println("There are no warnings on the form");
+    public boolean isElementPresent(By locatorKey) {
+        try {
+            driver.findElement(locatorKey);
             return true;
+        } catch (org.openqa.selenium.NoSuchElementException e) {
+            return false;
         }
+    }
+
+    public boolean isThereAnyWarning() {
+        return (isElementPresent(nameSurnameError) &&
+                isElementPresent(emailError) &&
+                isElementPresent(fileError) &&
+                isElementPresent(letError) &&
+                isElementPresent(reCaptchaError));
     }
 
     public ApplicationFormPage verifyButton(String button){
@@ -113,4 +115,3 @@ public class ApplicationFormPage {
     }
 
 }
-
