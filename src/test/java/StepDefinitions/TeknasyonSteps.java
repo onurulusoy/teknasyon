@@ -53,7 +53,7 @@ public class TeknasyonSteps {
 
     @Then("I check if there is any warning on the application form page")
     public void iCheckIfThereIsAnyWarningOnTheApplicationFormPage() {
-        Assert.assertTrue(applicationFormPage.isThereAnyWarning());
+        Assert.assertFalse(applicationFormPage.isThereAnyWarning());
     }
 
     @Then("I verify and click {string} button")
