@@ -11,7 +11,7 @@ Feature: Teknasyon
     Then I click on the "Test Otomasyon Mühendisi" position and check the title
     And I click apply button
     Then I check if there is any warning on the application form page
-    Then I verify and click "Başvbur" button
+    Then I verify and click "Başvur" button
     Then I check "CV Yükle" button is present
     Then I fill "Adınızı soyadınızı giriniz." as "Test User"
     Then I fill "E-postanızı giriniz." as "testuser@gmail.com"
