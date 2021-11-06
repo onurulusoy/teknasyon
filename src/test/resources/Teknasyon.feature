@@ -20,4 +20,5 @@ Feature: Teknasyon
     Then I check all the checkboxes
     And I see the warning texts are gone
     Then I verify and click "Başvur" button
+    #Manual intervention is required before the last step because of reCaptcha
     Then I see the successful icon and text
