@@ -25,6 +25,7 @@ public class TeknasyonCareerPage {
 
     public TeknasyonCareerPage verifyPositionExists(String position){
         WebElement expectedPosition = driver.findElement(By.cssSelector("a[title*='" + position + "']"));
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", expectedPosition);
         new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOf(expectedPosition));
         return this;
     }
