@@ -39,7 +39,7 @@ public class ApplicationFormPage {
 
     public ApplicationFormPage verifyButton(String button){
         WebElement theButton = driver.findElement(By.xpath("//span[text()='" + button +"']"));
-        Assert.assertTrue(theButton.isDisplayed());
+        new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOf(theButton));
         return this;
     }
 
@@ -64,7 +64,7 @@ public class ApplicationFormPage {
 
     public ApplicationFormPage verifyRecaptcha(){
         WebElement recaptchaToBeVerified = driver.findElement(recapcha);
-        Assert.assertTrue(recaptchaToBeVerified.isDisplayed());
+        new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOf(recaptchaToBeVerified));
         return this;
     }
 
@@ -102,7 +102,6 @@ public class ApplicationFormPage {
         new WebDriverWait(driver, 10).until(ExpectedConditions.urlToBe("https://teknasyon.com/job-application-form-success/"));
         WebElement successfulIcon = driver.findElement(iconSuccess);
         new WebDriverWait(driver,10).until(ExpectedConditions.visibilityOf(successfulIcon));
-        Assert.assertTrue(successfulIcon.isDisplayed());
         return this;
     }
 
@@ -110,7 +109,6 @@ public class ApplicationFormPage {
         new WebDriverWait(driver, 10).until(ExpectedConditions.urlToBe("https://teknasyon.com/job-application-form-success/"));
         WebElement successfulText = driver.findElement(textSuccess);
         new WebDriverWait(driver,10).until(ExpectedConditions.visibilityOf(successfulText));
-        Assert.assertTrue(successfulText.isDisplayed());
         return this;
     }
 
