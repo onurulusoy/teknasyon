@@ -73,7 +73,9 @@ public class ApplicationFormPage {
 
         //didn't check the recaptcha
         for (int i = 0; i < checkboxesToBeChecked.size() - 1; i++) {
-            checkboxesToBeChecked.get(i).click();
+            WebElement checkboxElement = checkboxesToBeChecked.get(i);
+            new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOf(checkboxElement));
+            ((JavascriptExecutor) driver).executeScript("arguments[0].click();", checkboxElement);
         }
         return this;
     }
