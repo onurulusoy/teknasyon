@@ -1,7 +1,6 @@
 package Pages;
 
 import Factory.DriverFactory;
-import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -30,10 +29,7 @@ public class GooglePage {
 
     public GooglePage isListed(String website){
         WebElement siteGiven = findWebSiteOnResults(website);
-        WebDriverWait wait = new WebDriverWait(driver,10);
-        wait.until(ExpectedConditions.visibilityOf(siteGiven));
-
-        Assert.assertTrue(siteGiven.isDisplayed());
+        new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOf(siteGiven));
         return this;
     }
 
