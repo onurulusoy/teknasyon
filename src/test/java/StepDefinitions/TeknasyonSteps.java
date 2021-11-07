@@ -8,6 +8,7 @@ import Pages.TeknasyonMainPage;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import org.junit.Assert;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -27,7 +28,7 @@ public class TeknasyonSteps {
     public void iScrollToTheBottomOfThePageAndClickToTheSubMenuItem(String item) {
         WebElement subMenuItem = teknasyonMainPage.findSubMenuItems(item);
         wait.until(ExpectedConditions.visibilityOf(subMenuItem));
-        subMenuItem.click();
+        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", subMenuItem);
     }
 
     @Then("I check the description of the Kariyer page")
