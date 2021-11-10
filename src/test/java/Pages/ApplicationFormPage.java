@@ -55,8 +55,8 @@ public class ApplicationFormPage {
         return this;
     }
 
-    public ApplicationFormPage uploadFile(){
-        String CVPath = System.getProperty("user.dir") + "\\testCV.pdf";
+    public ApplicationFormPage uploadFile(String CVName){
+        String CVPath = System.getProperty("user.dir") + "\\" + CVName;
         WebElement uploadButton = driver.findElement(By.id("jobFile"));
         uploadButton.sendKeys(CVPath);
         return this;
