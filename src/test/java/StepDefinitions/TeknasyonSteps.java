@@ -21,6 +21,8 @@ public class TeknasyonSteps {
     PositionDetailsPage positionDetailsPage = new PositionDetailsPage();
     ApplicationFormPage applicationFormPage = new ApplicationFormPage();
 
+    ApplicationHooks applicationHooks = new ApplicationHooks();
+
     WebDriver driver = DriverFactory.getDriver();
     WebDriverWait wait = new WebDriverWait(driver,10);
 
@@ -75,7 +77,9 @@ public class TeknasyonSteps {
 
     @Then("I upload my CV")
     public void iUploadMyCV() {
-        applicationFormPage.uploadFile();
+        applicationHooks.getProperty();
+        String CVName = applicationHooks.properties.getProperty("CVName");
+        applicationFormPage.uploadFile(CVName);
     }
 
     @Then("I verify that I have the recaptcha")
